@@ -2,20 +2,24 @@ package com.example.labo1.Service;
 
 import com.example.labo1.Model.Person;
 import com.opencsv.CSVReader;
+import org.springframework.stereotype.Service;
 
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Service
 public class PersonService {
-    public static List<Person> readDataLineByLine(String file)
+    public List<Person> listPerson = readDataLineByLine();
+    public List<Person> readDataLineByLine()
     {
 
         try {
 
             // Create an object of filereader
             // class with CSV file as a parameter.
-            FileReader filereader = new FileReader(file);
+            FileReader filereader = new FileReader("./data/person.csv");
 
             // create csvReader object passing
             // file reader as a parameter
@@ -49,9 +53,22 @@ public class PersonService {
         return null;
     }
 
-    public static void main(String[] args) {
+   public List<Person> filterByName(String name){
+        List<Person> tempList = new ArrayList<>();
+        List<Person> allPerson = readDataLineByLine();
+        for(Person person: allPerson){
+            if (person.getName().toLowerCase().equals(name.toLowerCase())){
+                tempList.add(person);
+            }
+        }
+        if(!tempList.isEmpty()){
 
-         List<Person> list =  readDataLineByLine("./data/person.csv");
-        System.out.println(list.get(0));
-    }
+            return tempList;
+        }
+        else {
+            return null;
+        }
+   }
+
+
 }
