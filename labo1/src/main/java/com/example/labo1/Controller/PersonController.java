@@ -24,4 +24,29 @@ public class PersonController {
 
         return personService.filterByName(name);
     }
+
+
+    @GetMapping("/getAll")
+    public List<Person> getAllPerson(){
+
+
+        return personService.listPerson;
+    }
+
+    @GetMapping("/getById/{id}")
+    public Person getPersonById(@PathVariable int id){
+
+
+        return personService.filterById(id);
+    }
+
+
+    @DeleteMapping("/deleteById/{id}")
+    public boolean deleteById(@PathVariable int id){
+
+
+        return personService.deleteById(id);
+    }
+
+
 }
