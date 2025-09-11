@@ -4,6 +4,7 @@ package com.example.labo1.Controller;
 import com.example.labo1.Model.Person;
 import com.example.labo1.Service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
 public class PersonController {
 
     @Autowired
+    @Qualifier("personService")
     PersonService personService;
 
 
