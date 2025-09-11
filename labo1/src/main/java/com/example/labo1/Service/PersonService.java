@@ -16,7 +16,13 @@ import java.util.List;
 
 @Service
 public class PersonService {
+    private final List list;
     public List<Person> listPerson = readDataLineByLine();
+
+    public PersonService(List list) {
+        this.list = list;
+    }
+
     public List<Person> readDataLineByLine()
     {
 
@@ -24,6 +30,7 @@ public class PersonService {
 
             // Create an object of filereader
             // class with CSV file as a parameter.
+
             FileReader filereader = new FileReader("./data/person.csv");
 
             // create csvReader object passing
@@ -127,6 +134,22 @@ public class PersonService {
 
         return false;
     }
+    public int getTheBiggestIdPlus1(){
+       int biggestId = 0;
+       for(Person person : listPerson){
+           if (person.getId() >biggestId){
+               biggestId = person.getId();
+           }
 
+       }
+
+       return biggestId + 1;
+    }
+    public boolean createOnePerson(Person person){
+        listPerson.add(person);
+        listToCsvFile(listPerson);
+        return true;
+
+    }
 
 }
