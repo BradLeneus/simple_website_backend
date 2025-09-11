@@ -2,9 +2,14 @@ package com.example.labo1.Service;
 
 import com.example.labo1.Model.Person;
 import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
+import com.opencsv.bean.StatefulBeanToCsv;
+import com.opencsv.bean.StatefulBeanToCsvBuilder;
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import org.springframework.stereotype.Service;
 
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,6 +74,59 @@ public class PersonService {
             return null;
         }
    }
+    public Person filterById(int id){
+
+        List<Person> allPerson = readDataLineByLine();
+        for(Person person: allPerson){
+            if (person.getId() == id){
+                return person;
+            }
+        }
+
+
+        return null;
+    }
+    public void listToCsvFile(List<Person> listToWrite) {
+        String filePath = "./data/personTest.csv";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            // Write header (optional but recommended)
+
+
+
+            // Write data rows
+            for (Person data : listToWrite) {
+                writer.write(data.getId() + "," + data.getName() + "," + data.getLastName() + "," + data.getEmail() + "," + data.getGender());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean deleteById(int id){
+        try{
+            List<Person> tempList = listPerson;
+            int index = 0;
+            for(Person p: tempList){
+                if(p.getId() == id){
+                    tempList.remove(index);
+
+                    listToCsvFile(tempList);
+                    return true;
+                }
+                index++;
+            }
+
+            return false;
+        }
+        catch (Exception e){
+            e.getMessage();
+        }
+
+
+
+        return false;
+    }
 
 
 }
