@@ -24,7 +24,7 @@ public class PersonService {
 
             // Create an object of filereader
             // class with CSV file as a parameter.
-            FileReader filereader = new FileReader("./data/person.csv");
+            FileReader filereader = new FileReader("D:\\siteProfMaintenanceBackFront\\simple_website_backend\\data\\person.csv");
 
             // create csvReader object passing
             // file reader as a parameter
