@@ -19,10 +19,10 @@ public class PersonController {
 
 
     @GetMapping("/search/{name}")
-    public List<Person> filterPersonByName(@PathVariable String name){
+    public Person filterPersonByName(@PathVariable String name){
 
 
-        return personService.filterByName(name);
+        return personService.getAllByName(name);
     }
 
 
@@ -30,14 +30,14 @@ public class PersonController {
     public List<Person> getAllPerson(){
 
 
-        return personService.listPerson;
+        return personService.getAllPerson();
     }
 
     @GetMapping("/getById/{id}")
     public Person getPersonById(@PathVariable int id){
 
 
-        return personService.filterById(id);
+        return personService.getByid(id);
     }
 
 
@@ -47,6 +47,14 @@ public class PersonController {
 
         return personService.deleteById(id);
     }
+    @PostMapping("/newPerson")
+    public boolean createPerson(@RequestBody Person p){
+
+
+        return personService.createPerson(p);
+    }
+
+
 
     @PostMapping("/newPerson/{name}/{lastname}/{email}/{gender}")
     // le @RequestBody regle le bug des données
