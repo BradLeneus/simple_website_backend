@@ -56,16 +56,5 @@ public class PersonController {
 
 
 
-    @PostMapping("/newPerson/{name}/{lastname}/{email}/{gender}")
-    // le @RequestBody regle le bug des données
-    public boolean createCustomer(@PathVariable String name, @PathVariable String lastname, @PathVariable String email, @PathVariable String gender){
-        Person tempoPerson = new Person();
-        tempoPerson.setId(personService.getTheBiggestIdPlus1());
-        tempoPerson.setName(name);
-        tempoPerson.setLastName(lastname);
-        tempoPerson.setEmail(email);
-        tempoPerson.setGender(gender);
-        personService.createOnePerson(tempoPerson);
-        return true;
-    }
+
 }
