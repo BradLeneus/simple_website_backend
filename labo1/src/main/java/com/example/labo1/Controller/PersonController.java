@@ -55,6 +55,31 @@ public class PersonController {
     }
 
 
+    @PutMapping("/modifyName/{id}/{name}")
+    public boolean updateName(@PathVariable String name, @PathVariable int id) {
+
+        personService.updatePersonName(id, name);
+        return true;
+    }
+    @PutMapping("/modifyLastName/{id}/{lastname}")
+    public boolean updateLastName(@PathVariable String lastname, @PathVariable int id) {
+
+        personService.updatePersonLastName(id, lastname);
+        return true;
+    }
+    @PutMapping("/modifyGender/{id}/{gender}")
+    public boolean updateGender(@PathVariable String gender, @PathVariable int id) {
+
+        personService.updatePersonGender(id, gender);
+        return true;
+    }
+    @PutMapping("/modifyEmail/{id}/{email}")
+    public boolean updateEmail(@PathVariable String email, @PathVariable int id) {
+
+        personService.updatePersonEmail(id, email);
+        return true;
+    }
+
 
 
 }

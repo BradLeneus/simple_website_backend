@@ -56,6 +56,32 @@ public class PersonService {
         }
         return false;
     }
+    public boolean updatePersonName(int i, String name){
+       Person findP =  repositoryPerson.getPersonById(i);
+       findP.setName(name);
+       repositoryPerson.save(findP);
+        return true;
+    }
+
+    public boolean updatePersonLastName(int i, String lastName){
+        Person findP =  repositoryPerson.getPersonById(i);
+        findP.setLastName(lastName);
+        repositoryPerson.save(findP);
+        return true;
+    }
+
+    public boolean updatePersonEmail(int i, String email){
+        Person findP =  repositoryPerson.getPersonById(i);
+        findP.setEmail(email);
+        repositoryPerson.save(findP);
+        return true;
+    }
+    public boolean updatePersonGender(int i, String gender){
+        Person findP =  repositoryPerson.getPersonById(i);
+        findP.setGender(gender);
+        repositoryPerson.save(findP);
+        return true;
+    }
 
 
 

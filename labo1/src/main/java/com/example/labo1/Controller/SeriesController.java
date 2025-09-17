@@ -2,6 +2,7 @@ package com.example.labo1.Controller;
 
 import com.example.labo1.Model.Person;
 import com.example.labo1.Model.Series;
+import com.example.labo1.Repositories.RepositoryPerson;
 import com.example.labo1.Service.SeriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
