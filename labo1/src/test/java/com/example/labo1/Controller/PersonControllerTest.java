@@ -29,5 +29,17 @@ public class PersonControllerTest {
         mockMvc.perform(get("/person/getAll"))
                 .andExpect(status().isOk());
     }
+    @Test
+    void searchNameStatusOk() throws Exception{
+        mockMvc.perform(get("/person/search/ssam"))
+                .andExpect(status().isOk());
+    }
+    @Test
+    void dgetByIdStatusOk() throws Exception{
+        mockMvc.perform(get("/person/getById/1"))
+                .andExpect(status().isOk());
+    }
+
+
 
 }
