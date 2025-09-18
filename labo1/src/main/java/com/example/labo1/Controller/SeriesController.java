@@ -51,6 +51,37 @@ public class SeriesController {
         return seriesService.createSerie(s);
     }
 
+    @PutMapping("/modifyTitle/{id}/{title}")
+    public  boolean updateTitle(@PathVariable String title,@PathVariable int id){
+        seriesService.updateSerieTitle(id,title);
+        return  true;
+
+    }
+
+    @PutMapping("/modifyGenre/{id}/{genre}")
+    public  boolean updateGenre(@PathVariable String genre,@PathVariable int id){
+        seriesService.updateSerieGenre(id, genre);
+        return  true;
+
+    }
+
+    @PutMapping("/modifyEpisodesNumber/{id}/{episodesNumber}")
+    public  boolean updateEpisodesNumber(@PathVariable int episodesNumber,@PathVariable int id){
+        seriesService.updateSerieEpisodesNumber(id,episodesNumber);
+        return  true;
+
+    }
+
+    @PutMapping("/modifyRating/{id}/{rating}")
+    public  boolean updateSeriesRating(@PathVariable double rating,@PathVariable int id){
+
+        seriesService.updateSerieRating(id,rating);
+
+        return  true;
+
+    }
+
+
 
 
 }
