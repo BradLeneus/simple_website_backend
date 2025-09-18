@@ -1,6 +1,8 @@
 package com.example.labo1.Service;
 
+import com.example.labo1.Model.History;
 import com.example.labo1.Model.Person;
+import com.example.labo1.Repositories.RepositoryHistory;
 import com.example.labo1.Repositories.RepositoryPerson;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
@@ -8,6 +10,7 @@ import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -19,8 +22,11 @@ import java.util.List;
 public class PersonService {
     private final RepositoryPerson repositoryPerson;
 
-    public PersonService(RepositoryPerson repositoryPerson){
+    private final RepositoryHistory repositoryHistory;
+
+    public PersonService(RepositoryPerson repositoryPerson, RepositoryHistory repositoryHistory) {
         this.repositoryPerson = repositoryPerson;
+        this.repositoryHistory = repositoryHistory;
     }
 
 
@@ -37,6 +43,7 @@ public class PersonService {
     }
     public Person getByid(int id){
         return repositoryPerson.getPersonById(id);
+
     }
 
 
@@ -45,7 +52,8 @@ public class PersonService {
 
 
     public boolean deleteById(int id){
-
+        List<History> list = repositoryHistory.findHistoriesByPerson_Id(id);
+        repositoryHistory.deleteAll(list);
         repositoryPerson.deleteById(id);
         return true;
     }

@@ -12,4 +12,5 @@ import java.util.List;
 public interface RepositoryHistory extends JpaRepository<History, Integer> {
     public List<History> findHistoriesByPerson_Id(int id);
 
+   public void deleteAllByPerson_Id(int id);
 }
