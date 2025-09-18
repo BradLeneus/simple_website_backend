@@ -53,13 +53,43 @@ public class SeriesService {
     }
 
 
-    public List<Series> search(String genre) {
+   /* public List<Series> search(String genre) {
         if (genre == null || genre.isEmpty()) {
             return repositorySeries.findAll();
         } else {
             return repositorySeries.getAllByGenre(genre);
         }
+    }*/
+
+
+    public  boolean updateSerieTitle(int id,String title){
+        Series findS = repositorySeries.getSerieById(id);
+        findS.setTitle(title);
+        repositorySeries.save(findS);
+        return  true;
     }
+
+    public  boolean updateSerieGenre(int id,String genre){
+        Series findS = repositorySeries.getSerieById(id);
+        findS.setGenre(genre);
+        repositorySeries.save(findS);
+        return  true;
+    }
+
+    public  boolean updateSerieEpisodesNumber(int id,int episodesNumber){
+        Series findS = repositorySeries.getSerieById(id);
+        findS.setEpisodesNumber(episodesNumber);
+        repositorySeries.save(findS);
+        return  true;
+    }
+
+    public  boolean updateSerieRating(int id,double rating){
+        Series findS = repositorySeries.getSerieById(id);
+        findS.setRating(rating);
+        repositorySeries.save(findS);
+        return  true;
+    }
+
 
 
 }
