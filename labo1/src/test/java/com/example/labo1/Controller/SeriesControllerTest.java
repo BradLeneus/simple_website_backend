@@ -53,7 +53,7 @@ public class SeriesControllerTest {
 
     @Test
     void searchSeriesByGenreStatusOk() throws Exception {
-        createSerieAndGetId("ShowX", "Comedy");
+        createSerieAndGetId("MINOUX", "Comedy");
 
         mockMvc.perform(get("/series/search/Comedy"))
                 .andExpect(status().isOk());
