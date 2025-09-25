@@ -2,6 +2,7 @@ package com.example.labo1.Service;
 
 import com.example.labo1.Model.History;
 import com.example.labo1.Model.Person;
+import com.example.labo1.Model.PersonDTO;
 import com.example.labo1.Repositories.RepositoryHistory;
 import com.example.labo1.Repositories.RepositoryPerson;
 import com.opencsv.CSVReader;
@@ -11,6 +12,7 @@ import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -20,6 +22,8 @@ import java.util.List;
 
 @Service
 public class PersonService {
+
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     private final RepositoryPerson repositoryPerson;
 
     private final RepositoryHistory repositoryHistory;
@@ -58,11 +62,32 @@ public class PersonService {
         return true;
     }
     public boolean createPerson(Person p){
-        if(repositoryPerson.getAllByName(p.getName()) == null){
+        if(repositoryPerson.getAllByName(p.getEmail()) == null){
+            p.setPassword(passwordEncoder.encode(p.getPassword()));
             repositoryPerson.save(p);
             return true;
         }
         return false;
+    }
+
+
+    public PersonDTO findCustomerByNameAndPassword(String email, String password){
+        Person c = repositoryPerson.getPersonByEmail(email);
+
+
+        if (passwordEncoder.matches(password, c.getPassword())){
+            PersonDTO personDTO = new PersonDTO();
+            personDTO.setEmail(c.getEmail());
+            personDTO.setId(c.getId());
+            personDTO.setGender(c.getGender());
+            personDTO.setName(c.getName());
+
+            return personDTO;
+        }
+
+
+
+        return null;
     }
     public boolean updatePersonName(int i, String name){
        Person findP =  repositoryPerson.getPersonById(i);

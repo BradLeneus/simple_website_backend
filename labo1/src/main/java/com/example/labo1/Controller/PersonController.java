@@ -2,6 +2,7 @@ package com.example.labo1.Controller;
 
 
 import com.example.labo1.Model.Person;
+import com.example.labo1.Model.PersonDTO;
 import com.example.labo1.Service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -49,11 +50,17 @@ public class PersonController {
 
         return personService.deleteById(id);
     }
-    @PostMapping("/newPerson")
+    @PostMapping("/signUp")
     public boolean createPerson(@RequestBody Person p){
 
 
         return personService.createPerson(p);
+    }
+    @GetMapping("/login/{email}/{password}")
+    public PersonDTO login(@PathVariable String email, @PathVariable String password){
+
+
+        return personService.findCustomerByNameAndPassword(email,password);
     }
 
 
