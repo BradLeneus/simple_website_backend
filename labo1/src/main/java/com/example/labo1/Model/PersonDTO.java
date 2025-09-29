@@ -6,9 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
 
-public class Person {
+
+public class PersonDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -16,7 +16,7 @@ public class Person {
     private String lastName;
     private String email;
     private String gender;
-    private String password;
+
 
     public String getName() {
         return name;
@@ -58,18 +58,12 @@ public class Person {
         this.gender = gender;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     @Override
     public String toString() {
         return "Person{" +
-                 "id=" + id +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +

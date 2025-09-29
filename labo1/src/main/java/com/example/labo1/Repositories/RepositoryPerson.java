@@ -9,5 +9,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface RepositoryPerson extends JpaRepository<Person, Integer> {
     Person getAllByName(String name);
     Person getPersonById(int id);
+    Person getPersonByEmail(String email);
 
 }
