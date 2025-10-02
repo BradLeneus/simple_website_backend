@@ -24,11 +24,10 @@ public class SeriesRatingsService {
 
 
     public SeriesRatingsService(RepositoryRating repositoryRating) {
-
-    public RatingsService(RepositoryRating repositoryRating) {
-
         this.repositoryRating = repositoryRating;
     }
+
+
 
 
     public boolean rateSeries( int personId,  int seriesId , double rating){
@@ -58,3 +57,4 @@ public class SeriesRatingsService {
 
 
 }
+
