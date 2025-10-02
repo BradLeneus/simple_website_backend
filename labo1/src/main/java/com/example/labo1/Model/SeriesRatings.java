@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 
 @Entity
-public class Ratings {
+public class SeriesRatings {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
