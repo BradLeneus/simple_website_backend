@@ -25,6 +25,11 @@ public class RecomendationController {
     public List<Series> TendenceSerieToUser(@PathVariable int userId) {
         return recommendationSerieService.recommendNonWatchedSerie(userId, true);
     }
+
+    @GetMapping("/tendence")
+    public List<Series> TendenceGeneral() {
+        return recommendationSerieService.tendance();
+    }
     @GetMapping("/reco/{userId}")
     public List<Series> reommendSerieToUser(@PathVariable int userId) {
         return recommendationSerieService.recommendNonWatchedSerie(userId, false);
