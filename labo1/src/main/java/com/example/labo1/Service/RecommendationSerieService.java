@@ -102,4 +102,50 @@ public class RecommendationSerieService {
         }
         return serieToRecommend;
     }
+    public List<Series> tendance(){
+        List<String> genres;
+
+        genres = getMostViewGender();
+
+
+        List<Series> serieToRecommend = new ArrayList<>();
+
+        List<Series> genre1 = seriesService.getAllByGenre(genres.get(0));
+        List<Series> genre2 = seriesService.getAllByGenre(genres.get(1));
+        List<Series> genre3 = seriesService.getAllByGenre(genres.get(2));
+        int i = 0;
+        for(Series serie: genre1){
+
+
+                serieToRecommend.add(serie);
+                i ++;
+                if (i==3){
+                    break;
+                }
+
+        }
+        i = 0;
+        for(Series serie: genre2){
+
+
+                serieToRecommend.add(serie);
+                i ++;
+                if (i==3){
+                    break;
+                }
+            }
+
+        i = 0;
+        for(Series serie: genre3){
+
+
+                serieToRecommend.add(serie);
+                i ++;
+                if (i==3){
+                    break;
+                }
+            }
+
+        return serieToRecommend;
+    }
 }
