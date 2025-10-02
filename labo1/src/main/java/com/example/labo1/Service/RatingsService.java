@@ -36,11 +36,9 @@ public class RatingsService {
         return true;
     }
 
-    public double getAverageRating( int seriesId){
+   public double getAverageRating( int seriesId){
         Double avg = repositoryRating.avgForSeries(seriesId);
         if (avg==null){
-            seriesService.getByid(seriesId);
-            seriesService.updateSerieRating(seriesId,avg);
             return 0.0;
         }
         else  {
