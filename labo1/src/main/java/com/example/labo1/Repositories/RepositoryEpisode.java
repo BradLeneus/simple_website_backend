@@ -10,4 +10,5 @@ public interface RepositoryEpisode extends JpaRepository<Episode, Integer> {
     List<Episode> findBySeries_Id(int seriesId);
 
 
+    List<Episode> findAllByTitle(String title);
 }

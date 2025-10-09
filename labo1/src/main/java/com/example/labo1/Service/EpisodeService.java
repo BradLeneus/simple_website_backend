@@ -27,12 +27,16 @@ public class EpisodeService {
         return repositoryEpisode.findBySeries_Id(seriesId);
     }
 
-    public Episode createEpisode (Episode e){
-        return repositoryEpisode.save(e);
+    public boolean createEpisode (Episode e){
+         repositoryEpisode.save(e);
+         return true;
     }
 
     public boolean deleteEpisode(int episodeId){
         repositoryEpisode.deleteById(episodeId);
         return true;
+    }
+    public List<Episode> getAllByTitle(String title) {
+        return repositoryEpisode.findAllByTitle(title);
     }
 }

@@ -20,7 +20,7 @@ public class RatingController {
 
 
     @PostMapping("/series/{SeriesId}")
-    public boolean rateSeries(@PathVariable int SeriesId, @RequestParam int personId, @RequestParam int rating){
+    public boolean rateSeries(@PathVariable int SeriesId, @RequestParam int personId, @RequestParam double rating){
         return seriesRatingsService.rateSeries(SeriesId, personId, rating);
     }
 
@@ -32,11 +32,11 @@ public class RatingController {
 
 
     @PostMapping("/episodes/{episodesId}")
-    public boolean rateEpisodes(@PathVariable int episodesId, @RequestParam int personId, @RequestParam int rating){
+    public boolean rateEpisodes(@PathVariable int episodesId, @RequestParam int personId, @RequestParam double rating){
         return episodeRatingsService.rateEpisodes(episodesId,personId,rating);
     }
 
-    @GetMapping("/episodes{episodesId}")
+    @GetMapping("/episodes/{episodesId}")
     public Double getEpisodeAverageRating(@PathVariable int episodesId){
         return episodeRatingsService.getAverageRating(episodesId);
     }
