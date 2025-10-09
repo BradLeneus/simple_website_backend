@@ -101,6 +101,7 @@ public class RatingsControllerTest {
     }
 
     @Test
+    //testRating
     void ratingEpisodeStatusOk() throws Exception {
         int personId = createPersonAndGetId("person2");
         int episodeId = createEpisodeAndGetId("episode1");
