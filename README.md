@@ -1,3 +1,7 @@
+
+
+
+
 ## Installation du frontend 
  - Étape 1: Installer NPM et Node JS
    ```
@@ -6,6 +10,7 @@
    ```
  - Étape 2: Vérifier l'installation de Node JS et NPM
      ```
+     node version 20 ou plus requis.
      node -v
      npm -v
      ```
@@ -49,20 +54,28 @@
     ```
 - Étape 5: Installer le serveur MariaDB
   ```
-  sudo apt update
-  sudo apt upgrade -y
   sudo apt install mariadb-server mariadb-client -y
+  
   ```
-- Étape 6: Installer IntelliJ via ce lien : https://www.jetbrains.com/idea/download/?section=linux
+  
+- Étape 6 : Création de la base de donnée et User
+  ```
+  mysql -u root -p
+  CREATE DATABASE maintenance;
+  CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+  GRANT ALL PRIVILEGES ON maintenance.* TO 'user'@'localhost';
+  FLUSH PRIVILEGES;
 
-- Étape 7: Installer HeidiSQL via ce lien:  https://www.heidisql.com/download.php
-- Étape 8: Créer une session Heidi avec le port 3306
--  Étape 9: créer une base de données nommée maintenance
--  Étape 10: cloner le projet backend
-   ````
-   git clone https://github.com/BradLeneus/simple_website_backend.git
-   ````
-- Étape 11: ouvrir le projet frontend et backend dans IntelliJ ensemble
-- Étape 12: lancer le projet backend avant le projet frontend
+
+  ```
+- Étape 7: Compilation et démarrage.
+  
+  cd simple_website_backend/labo1
+  
+  mvn clean compile
+  mvn exec:java -Dexec.mainClass="com.example.labo1.Labo1Application"
+
+ 
+
   
    
