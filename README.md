@@ -49,9 +49,9 @@
    ```
 
 - Étape 4: Vérifier que c'est installé
-    ```
+   ```
    mvn -version
-    ```
+   ```
 - Étape 5: Installer le serveur MariaDB
   ```
   sudo apt install mariadb-server mariadb-client -y
@@ -69,12 +69,12 @@
 
   ```
 - Étape 7: Compilation et démarrage.
-  
+  ```
   cd simple_website_backend/labo1
   
   mvn clean compile
   mvn exec:java -Dexec.mainClass="com.example.labo1.Labo1Application"
-
+  ```
  
 
   
