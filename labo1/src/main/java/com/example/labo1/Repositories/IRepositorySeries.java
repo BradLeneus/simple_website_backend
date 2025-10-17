@@ -6,7 +6,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-@RepositoryRestResource(collectionResourceRel = "series", path = "oui")
+
 public interface IRepositorySeries  extends JpaRepository<Series,Integer> {
     List<Series> getAllByGenre(String genre);
 
