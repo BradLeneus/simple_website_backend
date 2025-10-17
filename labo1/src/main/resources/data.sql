@@ -2,7 +2,7 @@ insert into person (name, last_name, email, gender, password) values ("ssam", "t
 insert into person (name, last_name, email, gender,password) values ("sssdfsam", "theGoat", "hehe@gmail.com", "male","adaa");
 insert into person (name, last_name, email, gender,password) values ("sssdfsdfam", "theGoat", "hehe@gmail.com", "male","adsad");
 insert into person (name, last_name, email, gender,password) values ("ssfdsdfsfdsam", "theGoat", "hehe@gmail.com", "male","asdasdad");
-insert into person (name, last_name, email, gender,password) values ("sssssssssssam", "theGoat", "hehe@gmail.com", "male","qeqweqweqwe");
+insert into person (name, last_name, email, gender,password) values ("sssssssssssam", "theGoat", "ha@gmail.com", "male","ha");
 
 
 insert into series(title,genre,episodes_number,rating)
