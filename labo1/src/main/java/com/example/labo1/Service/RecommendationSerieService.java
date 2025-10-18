@@ -59,7 +59,7 @@ public class RecommendationSerieService {
         if(fromALluser){
             genres = getMostViewGender();
         }
-       else {
+        else {
             genres = getMostViewGenderByTheUser(userId);
         }
         List<Series> serieToRecommend = new ArrayList<>();
@@ -74,7 +74,7 @@ public class RecommendationSerieService {
                 serieToRecommend.add(serie);
                 i ++;
                 if (i==3){
-                   break;
+                    break;
                 }
             }
         }
@@ -117,34 +117,34 @@ public class RecommendationSerieService {
         for(Series serie: genre1){
 
 
-                serieToRecommend.add(serie);
-                i ++;
-                if (i==3){
-                    break;
-                }
+            serieToRecommend.add(serie);
+            i ++;
+            if (i==3){
+                break;
+            }
 
         }
         i = 0;
         for(Series serie: genre2){
 
 
-                serieToRecommend.add(serie);
-                i ++;
-                if (i==3){
-                    break;
-                }
+            serieToRecommend.add(serie);
+            i ++;
+            if (i==3){
+                break;
             }
+        }
 
         i = 0;
         for(Series serie: genre3){
 
 
-                serieToRecommend.add(serie);
-                i ++;
-                if (i==3){
-                    break;
-                }
+            serieToRecommend.add(serie);
+            i ++;
+            if (i==3){
+                break;
             }
+        }
 
         return serieToRecommend;
     }
