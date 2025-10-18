@@ -76,6 +76,10 @@
   mvn exec:java -Dexec.mainClass="com.example.labo1.Labo1Application"
   ```
  
+## ScreenShot
+
+
+<img width="1716" height="951" alt="image" src="https://github.com/user-attachments/assets/bc9e1366-3183-4da6-bf73-98bd4ef8dea6" />
 
   
    
