@@ -19,10 +19,10 @@ public class HistoryControllerTest {
 
     private int createPersonAndGetId(String name) throws Exception {
         String json = """
-            {"name":"%s","lastName":"Tester","email":"%s@example.com","gender":"M"}
+            {"name":"%s","lastName":"Tester","email":"%s@example.com","gender":"M", "password":"1234"}
         """.formatted(name, name.toLowerCase());
 
-        mockMvc.perform(post("/person/newPerson")
+        mockMvc.perform(post("/person/signUp")
                         .contentType("application/json")
                         .content(json))
                 .andExpect(status().isOk())

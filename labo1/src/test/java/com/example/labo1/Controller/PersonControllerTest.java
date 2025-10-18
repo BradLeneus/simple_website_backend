@@ -45,10 +45,10 @@ public class PersonControllerTest {
     @Test
     void deleteByIdStatusOk() throws Exception {
         String json = """
-                {"name":"Temp","lastName":"User","email":"temp@example.com","gender":"F"}
+                {"name":"Temp","lastName":"User","email":"temp@example.com","gender":"F", "password":"123456"}
                 """;
 
-        mockMvc.perform(post("/person/newPerson")
+        mockMvc.perform(post("/person/signUp")
                         .contentType("application/json")
                         .content(json))
                 .andExpect(status().isOk());
@@ -69,10 +69,10 @@ public class PersonControllerTest {
     void createPersonStatusOk() throws Exception{
 
         String json = """
-        {"name":"Bob","lastName":"Durand","email":"bob@example.com","gender":"M"}
+        {"name":"Bob","lastName":"Durand","email":"bob@example.com","gender":"M" , "password":"12345"}
     """;
 
-        mockMvc.perform(post("/person/newPerson")
+        mockMvc.perform(post("/person/signUp")
                 .contentType("application/json").content(json))
                 .andExpect(status().isOk())
                 .andExpect(content().string("true"));
@@ -82,10 +82,10 @@ public class PersonControllerTest {
     void updatePersonStatusOk() throws Exception{
 
         String json = """
-        {"name":"Temp","lastName":"User","email":"temp@example.com","gender":"F"}
+        {"name":"Temp","lastName":"User","email":"temp@example.com","gender":"F", "password":"123456"}
     """;
 
-        mockMvc.perform(post("/person/newPerson")
+        mockMvc.perform(post("/person/signUp")
                 .contentType("application/json")
                 .content(json))
                 .andExpect(status().isOk())
@@ -108,10 +108,10 @@ public class PersonControllerTest {
     @Test
     void modifyLastNameStatusOk() throws Exception {
         String json = """
-        {"name":"Jean","lastName":"Test","email":"jean@example.com","gender":"M"}
+        {"name":"Jean","lastName":"Test","email":"jean@example.com","gender":"M", "password":"123456"}
     """;
 
-        mockMvc.perform(post("/person/newPerson")
+        mockMvc.perform(post("/person/signUp")
                         .contentType("application/json")
                         .content(json))
                 .andExpect(status().isOk());
@@ -132,10 +132,10 @@ public class PersonControllerTest {
     @Test
     void modifyGenderStatusOk() throws Exception {
         String json = """
-        {"name":"Marc","lastName":"Lavoie","email":"marc@example.com","gender":"M"}
+        {"name":"Marc","lastName":"Lavoie","email":"marc@example.com","gender":"M", "password":"123456"}
     """;
 
-        mockMvc.perform(post("/person/newPerson")
+        mockMvc.perform(post("/person/signUp")
                         .contentType("application/json")
                         .content(json))
                 .andExpect(status().isOk());
@@ -156,10 +156,10 @@ public class PersonControllerTest {
     @Test
     void modifyEmailStatusOk() throws Exception {
         String json = """
-        {"name":"Luc","lastName":"Petit","email":"luc@example.com","gender":"M"}
+        {"name":"Luc","lastName":"Petit","email":"luc@example.com","gender":"M", "password":"123456"}
     """;
 
-        mockMvc.perform(post("/person/newPerson")
+        mockMvc.perform(post("/person/signUp")
                         .contentType("application/json")
                         .content(json))
                 .andExpect(status().isOk());
