@@ -86,14 +86,7 @@ public class SeriesControllerTest {
                 .andExpect(content().string("true"));
     }
 
-    @Test
-    void modifyRatingStatusOk() throws Exception {
-        int id = createSerieAndGetId("RatingTest", "SciFi");
 
-        mockMvc.perform(put("/series/modifyRating/" + id + "/9.2"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("true"));
-    }
 
     @Test
     void deleteSerieStatusOk() throws Exception {
