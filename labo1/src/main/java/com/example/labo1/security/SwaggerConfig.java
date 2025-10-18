@@ -1,4 +1,4 @@
-package com.example.labo1.docs;
+package com.example.labo1.security;
 
 import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
