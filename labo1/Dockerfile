@@ -18,8 +18,8 @@ COPY --from=build /app/target/*.jar /app/app.jar
 ENV DB_HOST=localhost \
     DB_PORT=3306 \
     DB_NAME=maintenance \
-    DB_USER=root \
-    DB_PASS= \
+    DB_USER=user \
+    DB_PASS=password \
     JAVA_OPTS=""
 
 EXPOSE 8182
