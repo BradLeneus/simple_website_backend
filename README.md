@@ -83,9 +83,9 @@ minimum 75% de couverture total
 dans /labo1 -> mvn clean verify
 
 puis -> start .\target\site\jacoco\index.html
-
-<img width="1668" height="867" alt="image" src="https://github.com/user-attachments/assets/11a05809-6f45-469b-87d2-3556b43d7cad" />
 ```
+<img width="1668" height="867" alt="image" src="https://github.com/user-attachments/assets/11a05809-6f45-469b-87d2-3556b43d7cad" />
+
 
 
 ## Documentation
@@ -96,9 +96,9 @@ swagger:  http://localhost:8182/swagger-ui/index.html
 javadoc -> dans /labo1 mvn clean javadoc:javadoc
 
 Puis ->  start .\target\site\apidocs\index.html
-
-<img width="1670" height="935" alt="image" src="https://github.com/user-attachments/assets/6871bd5a-071b-4c67-b117-771ab55454b9" />
 ```
+<img width="1670" height="935" alt="image" src="https://github.com/user-attachments/assets/6871bd5a-071b-4c67-b117-771ab55454b9" />
+
 
 ## Lien de l'image du docker backend
 
