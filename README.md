@@ -32,6 +32,7 @@
   ```
 
   ## Installation du backend
+  ps: Si environnment de l'école, allez à l'étape 7 directement.
    - Étape 1 : installer Java 21
      ```
      sudo apt update -y && sudo apt upgrade -y
